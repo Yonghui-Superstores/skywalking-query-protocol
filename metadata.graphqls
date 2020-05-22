@@ -59,22 +59,22 @@ type Database {
 }
 
 extend type Query {
-    getGlobalBrief(duration: Duration!): ClusterBrief
+    getGlobalBrief(duration: Duration!, externalProjectId: String!): ClusterBrief
 
     # Service related meta info.
-    getAllServices(duration: Duration!): [Service!]!
-    searchServices(duration: Duration!, keyword: String!): [Service!]!
+    getAllServices(duration: Duration!, externalProjectId: String!): [Service!]!
+    searchServices(duration: Duration!, keyword: String!, externalProjectId: String!): [Service!]!
     searchService(serviceCode: String!): Service
 
     # Service intance query
-    getServiceInstances(duration: Duration!, serviceId: ID!): [ServiceInstance!]!
+    getServiceInstances(duration: Duration!, serviceId: ID!, externalProjectId: String!): [ServiceInstance!]!
 
     # Endpoint query
     # Consider there are huge numbers of endpoint,
     # must use endpoint owner's service id, keyword and limit filter to do query.
-    searchEndpoint(keyword: String!, serviceId: ID!, limit: Int!): [Endpoint!]!
+    searchEndpoint(keyword: String!, serviceId: ID!, limit: Int!, externalProjectId: String!): [Endpoint!]!
     getEndpointInfo(endpointId: ID!): EndpointInfo
 
     # Database related meta info.
-    getAllDatabases(duration: Duration!): [Database!]!
+    getAllDatabases(duration: Duration!, externalProjectId: String!): [Database!]!
 }
