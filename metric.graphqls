@@ -23,7 +23,7 @@ input MetricCondition {
     # Id in this metric type.
     # In the above case, the id should be endpoint id.
     id: ID
-    externalProjectId: String!
+    externalProjectId: String
 }
 
 input BatchMetricConditions {
