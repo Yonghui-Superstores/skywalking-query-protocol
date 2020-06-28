@@ -67,12 +67,12 @@ extend type Query {
     searchService(serviceCode: String!): Service
 
     # Service intance query
-    getServiceInstances(duration: Duration!, serviceId: ID!, externalProjectId: String!): [ServiceInstance!]!
+    getServiceInstances(duration: Duration!, serviceId: ID!, externalProjectId: String): [ServiceInstance!]!
 
     # Endpoint query
     # Consider there are huge numbers of endpoint,
     # must use endpoint owner's service id, keyword and limit filter to do query.
-    searchEndpoint(keyword: String!, serviceId: ID!, limit: Int!, externalProjectId: String!): [Endpoint!]!
+    searchEndpoint(keyword: String!, serviceId: ID!, limit: Int!, externalProjectId: String): [Endpoint!]!
     getEndpointInfo(endpointId: ID!): EndpointInfo
 
     # Database related meta info.
