@@ -23,6 +23,11 @@ type ClusterBrief {
     numOfMQ: Int!
 }
 
+type Project {
+    id: ID!
+    name: String!
+}
+
 type Service {
     id: ID!
     name: String!
@@ -67,13 +72,15 @@ type TimeInfo {
 }
 
 extend type Query {
+    getProjects(duration: Duration!, projectNames: [String!]!): [Project!]!
+
     # Normal service related metainfo 
-    getAllServices(duration: Duration!): [Service!]!
-    searchServices(duration: Duration!, keyword: String!): [Service!]!
+    getAllServices(duration: Duration!, projectId: String!): [Service!]!
+    searchServices(duration: Duration!, keyword: String!, projectId: String!): [Service!]!
     searchService(serviceCode: String!): Service
     
     # Fetch all services of Browser type
-    getAllBrowserServices(duration: Duration!): [Service!]!
+    getAllBrowserServices(duration: Duration!, projectId: String!): [Service!]!
 
     # Service intance query
     getServiceInstances(duration: Duration!, serviceId: ID!): [ServiceInstance!]!
@@ -85,9 +92,9 @@ extend type Query {
     getEndpointInfo(endpointId: ID!): EndpointInfo
 
     # Database related meta info.
-    getAllDatabases(duration: Duration!): [Database!]!
+    getAllDatabases(duration: Duration!, projectId: String!): [Database!]!
     getTimeInfo: TimeInfo
 
     # Deprecated query, left only for not breaking UI for short term.
-    getGlobalBrief(duration: Duration!): ClusterBrief
+    getGlobalBrief(duration: Duration!, projectId: String!): ClusterBrief
 }
