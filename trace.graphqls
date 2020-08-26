@@ -33,7 +33,7 @@ type BasicTrace {
 # Represent the conditions used for query TraceBrief
 input TraceQueryCondition {
     # The value of 0 means all services.
-    projectId: String
+    projectIds: [String!]!
     serviceId: ID
     serviceInstanceId: ID
     traceId: String

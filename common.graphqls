@@ -50,6 +50,7 @@ input Duration {
     start: String!
     end: String!
     step: Step!
+    gap: Int
 }
 
 enum Step {
@@ -87,6 +88,7 @@ enum Language {
 
 enum Scope {
     All
+    Project
     Service
     ServiceInstance
     Endpoint

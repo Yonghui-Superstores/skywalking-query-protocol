@@ -27,9 +27,9 @@ type TopNEntity {
 # All aggregation queries require backend or/and storage do aggregation in query time.
 extend type Query {
     # TopN is an aggregation query.
-    getServiceTopN(name: String!, topN: Int!, duration: Duration!, order: Order!, projectId: String!): [TopNEntity!]!
-    getAllServiceInstanceTopN(name: String!, topN: Int!, duration: Duration!, order: Order!, projectId: String!): [TopNEntity!]!
-    getServiceInstanceTopN(serviceId: ID!, name: String!, topN: Int!, duration: Duration!, order: Order!, projectId: String!): [TopNEntity!]!
-    getAllEndpointTopN(name: String!, topN: Int!, duration: Duration!, order: Order!, projectId: String!): [TopNEntity!]!
-    getEndpointTopN(serviceId: ID!, name: String!, topN: Int!, duration: Duration!, order: Order!, projectId: String!): [TopNEntity!]!
+    getServiceTopN(name: String!, topN: Int!, duration: Duration!, order: Order!, projectName: String!): [TopNEntity!]!
+    getAllServiceInstanceTopN(name: String!, topN: Int!, duration: Duration!, order: Order!, projectName: String!): [TopNEntity!]!
+    getServiceInstanceTopN(serviceId: ID!, name: String!, topN: Int!, duration: Duration!, order: Order!, projectName: String!): [TopNEntity!]!
+    getAllEndpointTopN(name: String!, topN: Int!, duration: Duration!, order: Order!, projectName: String!): [TopNEntity!]!
+    getEndpointTopN(serviceId: ID!, name: String!, topN: Int!, duration: Duration!, order: Order!, projectName: String!): [TopNEntity!]!
 }

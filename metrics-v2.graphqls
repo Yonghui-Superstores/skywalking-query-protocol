@@ -35,12 +35,13 @@ enum MetricsType {
 
 input Entity {
     # 1. scope=All, no name is required.
-    # 2. scope=Service, ServiceInstance and Endpoint, set neccessary serviceName/serviceInstanceName/endpointName
+    # 2. scope=Project, Service, ServiceInstance and Endpoint, set neccessary serviceName/serviceInstanceName/endpointName
     # 3. Scope=ServiceRelation, ServiceInstanceRelation and EndpointRelation
     #    serviceName/serviceInstanceName/endpointName is/are the source(s)
     #    destServiceName/destServiceInstanceName/destEndpointName is/are destination(s)
     #    set necessary names of sources and destinations.
     scope: Scope!
+    projectName: String
     serviceName: String
     # Normal service is the service having installed agent or metrics reported directly.
     # Unnormal service is conjectural service, usually detected by the agent.
@@ -68,6 +69,7 @@ input MetricsCondition {
 input TopNCondition {
     # Metrics name
     name: String!
+    projectName: String
     # Could be null if query the global top N.
     parentService: String
     # Normal service is the service having installed agent or metrics reported directly.
