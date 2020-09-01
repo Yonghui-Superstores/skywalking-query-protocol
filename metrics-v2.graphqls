@@ -143,4 +143,6 @@ extend type Query {
     # Read the sampled records
     # TopNCondition#scope is not required.
     readSampledRecords(condition: TopNCondition!, duration: Duration!): [SelectedRecord!]!
+
+    readDots(condition: MetricsCondition!, duration: Duration!): HeatMap
 }
