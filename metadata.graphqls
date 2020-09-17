@@ -88,8 +88,7 @@ extend type Query {
     # Endpoint query
     # Consider there are huge numbers of endpoint,
     # must use endpoint owner's service id, keyword and limit filter to do query.
-    searchEndpoint(keyword: String!, serviceId: ID!, limit: Int!): [Endpoint!]!
-    searchEndpointTrace(keyword: String!, serviceId: ID!, limit: Int!, projectIds: [ID!]!): [Endpoint!]!
+    searchEndpoint(keyword: String!, serviceId: ID, limit: Int! , projectIds: [ID!]): [Endpoint!]!
     getEndpointInfo(endpointId: ID!): EndpointInfo
 
     # Database related meta info.
